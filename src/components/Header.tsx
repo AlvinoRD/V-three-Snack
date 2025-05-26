@@ -1,146 +1,140 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { logoutUser } from '../firebase/firebase';
 
 const Header: React.FC = () => {
+  // Ambil status login user dari context
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  // Add scroll event listener to detect when page is scrolled
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    // Clean up the event listener
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+  // Fungsi untuk menangani logout
   const handleLogout = async () => {
     try {
+      console.log('Proses logout dimulai');
       await logoutUser();
-      navigate('/login');
+      console.log('Logout berhasil, redirect ke halaman dashboard');
+      navigate('/dashboard');
     } catch (error) {
-      console.error('Failed to log out', error);
+      console.error('Gagal logout:', error);
+      alert('Gagal logout. Silakan coba lagi.');
     }
   };
 
-  // Menu items with proper routes
+  // Menu navigasi utama - mengubah Locations menjadi My Orders
   const menuItems = [
     { name: 'About Us', href: '/about' },
     { name: 'Menu', href: '/menu' },
-    { name: 'Locations', href: '/locations' },
+    { name: 'Order', href: '/order' },
+    { name: 'My Orders', href: '/MyOrders' } // URL masih /locations tapi label diubah
   ];
 
   return (
-    <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#6DBE45] bg-opacity-95 shadow-md' : 'bg-transparent shadow-none'
-      }`}
-    >
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Left Nav Links */}
-          <div className="hidden md:flex items-center space-x-8">
+    <header className="bg-white shadow fixed w-full z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/dashboard" className="font-bold text-xl">
+              V-THREE SNACK
+            </Link>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-4">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="text-sm font-medium text-white hover:text-gray-200 transition-colors"
-                style={{ textShadow: isScrolled ? 'none' : "1px 1px 2px rgba(0,0,0,0.3)" }}
+                className="px-3 py-2 text-gray-700 hover:text-gray-900"
               >
-                {item.name.toUpperCase()}
+                {item.name}
               </Link>
             ))}
+          </nav>
+
+          {/* Login/Logout Button (Desktop) */}
+          <div className="hidden md:block">
+            {currentUser ? (
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+              >
+                Logout
+              </button>
+            ) : (
+              <div className="flex space-x-2">
+                <Link
+                  to="/login"
+                  className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
           </div>
 
-          {/* Brand Logo/Name - Center */}
-          <div 
-            className="flex-1 flex justify-center md:flex-none md:absolute md:left-1/2 md:transform md:-translate-x-1/2 cursor-pointer"
-            onClick={() => navigate('/dashboard')}
-          >
-            <div className="text-white text-2xl font-bold" 
-              style={{ textShadow: isScrolled ? 'none' : "2px 2px 4px rgba(0,0,0,0.5)" }}
-            >
-              V-THREE SNACK
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-gray-700 hover:bg-opacity-25 focus:outline-none"
+              className="p-2"
             >
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isMobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
-          </div>
-
-          {/* Right Side - Logout Button */}
-          <div className="hidden md:flex items-center">
-            <button
-              onClick={handleLogout}
-              className="px-6 py-2 rounded-full text-white transition duration-300 hover:bg-opacity-80 focus:outline-none"
-              style={{
-                backgroundColor: "#F4D35E",
-                color: "#8B5E3C",
-                border: "2px solid #6DBE45",
-              }}
-            >
-              LOGOUT
+              {isMobileMenuOpen ? 'Tutup' : 'Menu'}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile menu, show/hide based on menu state */}
-      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black bg-opacity-75 rounded-b-lg">
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700 hover:bg-opacity-50"
-            >
-              {item.name}
-            </Link>
-          ))}
-          <button
-            onClick={handleLogout}
-            className="mt-2 w-full flex justify-center py-2 px-4 border border-transparent rounded-md text-sm font-medium text-white hover:bg-opacity-90"
-            style={{
-              backgroundColor: "#F4D35E",
-              color: "#8B5E3C",
-              border: "2px solid #6DBE45",
-            }}
-          >
-            Logout
-          </button>
-        </div>
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden py-2 border-t">
+            <div className="space-y-1">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-3 py-2 text-gray-700"
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              {currentUser ? (
+                <button
+                  onClick={handleLogout}
+                  className="w-full text-left px-3 py-2 text-gray-700"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-3 py-2 text-gray-700"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-3 py-2 text-gray-700"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
