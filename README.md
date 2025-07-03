@@ -1,23 +1,4 @@
-# V-THREE SNACK Catering Management ## Struktur Pro  - **context/**: Implementasi React Context API untuk state management global.
-    - **AuthContext.tsx**: Konteks untuk manajemen state autentikasi.
-    - **CartContext.tsx**: Konteks untuk manajemen keranjang belanja.
-
-  - **firebase/**: Konfigurasi dan setup Firebase.
-    - **firebase.ts**: Inisialisasi Firebase dan ekspor instance.
-
-  - **services/**: Layer service untuk operasi data dan logika bisnis.
-    - **GeminiService.ts**: Service untuk integrasi dengan Gemini AI.
-
-- **src/**: Direktori utama untuk kode sumber aplikasi.
-
-  - **components/**: Berisi komponen UI yang dapat digunakan kembali.
-    - **Header.tsx**: Komponen header dengan navigasi.
-    - **ChatBot.tsx**: Komponen ChatBot dengan integrasi Gemini AI.
-    - **GoogleSignInButton.tsx**: Komponen untuk login dengan Google.
-    - **PrivateRoute.tsx**: Komponen untuk menangani rute terproteksi yang memerlukan autentikasi.
-    - **Admin/**: Komponen khusus untuk pengguna admin.m
-
-Selamat datang di repositori proyek V-THREE SNACK Catering Management System. Proyek ini adalah aplikasi manajemen untuk bisnis katering yang dibangun menggunakan React, TypeScript, dan Firebase sebagai Backend as a Service (BaaS), dengan fitur ChatBot menggunakan Gemini AI API.
+# V-THREE SNACK Catering Management ## Struktur Proyek
 
 Aplikasi ini dirancang untuk menampilkan menu katering, menangani pesanan pelanggan secara online, dan memberikan rekomendasi menu melalui ChatBot pintar. Aplikasi ini menggunakan Firebase Firestore untuk menyimpan dan mengelola data menu dan pesanan.
 
@@ -25,7 +6,7 @@ Aplikasi ini dirancang untuk menampilkan menu katering, menangani pesanan pelang
 
 Anda dapat mengakses dan mencoba aplikasi yang sudah di-deploy melalui link berikut:
 
-[Akses V-THREE SNACK](https://login-a3932.web.app)
+[Akses V-THREE SNACK](https://v-three-snack.web.app)
 
 Kredensial untuk Login:
 - Email: ujicoba@gmail.com
@@ -51,15 +32,27 @@ Kredensial untuk Login:
 - **Routing**: React Router
 - **Development & Build**: Create React App
 
-### `npm run eject`
+- **src/**: Direktori utama untuk kode sumber aplikasi.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - **components/**: Berisi komponen UI yang dapat digunakan kembali.
+    - **Header.tsx**: Komponen header dengan navigasi.
+    - **ChatBot.tsx**: Komponen ChatBot dengan integrasi Gemini AI.
+    - **GoogleSignInButton.tsx**: Komponen untuk login dengan Google.
+    - **PrivateRoute.tsx**: Komponen untuk menangani rute terproteksi yang memerlukan autentikasi.
+    - **Admin/**: Komponen khusus untuk pengguna admin.
+    
+  - **context/**: Implementasi React Context API untuk state management global.
+    - **AuthContext.tsx**: Konteks untuk manajemen state autentikasi.
+    - **CartContext.tsx**: Konteks untuk manajemen keranjang belanja.
+    
+  - **firebase/**: Konfigurasi dan setup Firebase.
+    - **firebase.ts**: Inisialisasi Firebase dan ekspor instance.
+    
+  - **services/**: Layer service untuk operasi data dan logika bisnis.
+    - **GeminiService.ts**: Service untuk integrasi dengan Gemini AI.
+  
+  - **pages/**: Halaman-halaman utama aplikasi.amat datang di repositori proyek V-THREE SNACK Catering Management System. Proyek ini adalah aplikasi manajemen untuk bisnis katering yang dibangun menggunakan React, TypeScript, dan Firebase sebagai Backend as a Service (BaaS), dengan fitur ChatBot menggunakan Gemini AI API.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
   - **pages/**: Halaman-halaman utama aplikasi.
     - **Dashboard.tsx**: Halaman beranda utama.
