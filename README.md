@@ -1,33 +1,55 @@
-# Getting Started with Create React App
+# V-THREE SNACK Catering Management ## Struktur Pro  - **context/**: Implementasi React Context API untuk state management global.
+    - **AuthContext.tsx**: Konteks untuk manajemen state autentikasi.
+    - **CartContext.tsx**: Konteks untuk manajemen keranjang belanja.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  - **firebase/**: Konfigurasi dan setup Firebase.
+    - **firebase.ts**: Inisialisasi Firebase dan ekspor instance.
 
-## Available Scripts
+  - **services/**: Layer service untuk operasi data dan logika bisnis.
+    - **GeminiService.ts**: Service untuk integrasi dengan Gemini AI.
 
-In the project directory, you can run:
+- **src/**: Direktori utama untuk kode sumber aplikasi.
 
-### `npm start`
+  - **components/**: Berisi komponen UI yang dapat digunakan kembali.
+    - **Header.tsx**: Komponen header dengan navigasi.
+    - **ChatBot.tsx**: Komponen ChatBot dengan integrasi Gemini AI.
+    - **GoogleSignInButton.tsx**: Komponen untuk login dengan Google.
+    - **PrivateRoute.tsx**: Komponen untuk menangani rute terproteksi yang memerlukan autentikasi.
+    - **Admin/**: Komponen khusus untuk pengguna admin.m
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Selamat datang di repositori proyek V-THREE SNACK Catering Management System. Proyek ini adalah aplikasi manajemen untuk bisnis katering yang dibangun menggunakan React, TypeScript, dan Firebase sebagai Backend as a Service (BaaS), dengan fitur ChatBot menggunakan Gemini AI API.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Aplikasi ini dirancang untuk menampilkan menu katering, menangani pesanan pelanggan secara online, dan memberikan rekomendasi menu melalui ChatBot pintar. Aplikasi ini menggunakan Firebase Firestore untuk menyimpan dan mengelola data menu dan pesanan.
 
-### `npm test`
+## Demo Aplikasi
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Anda dapat mengakses dan mencoba aplikasi yang sudah di-deploy melalui link berikut:
 
-### `npm run build`
+[Akses V-THREE SNACK](https://login-a3932.web.app)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Kredensial untuk Login:
+- Email: ujicoba@gmail.com
+- Password: lab12345
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Fitur Utama
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Autentikasi Aman**: Sistem login berbasis Firebase Authentication dengan sign-in menggunakan email atau Google.
+- **Dashboard**: Tampilan beranda dengan navigasi ke menu, order, dan informasi tentang layanan katering.
+- **Menu Katalog**: Tampilan daftar menu katering dengan kategori snack dan nasi.
+- **Sistem Order**: Pemesanan makanan online untuk berbagai acara spesial.
+- **Riwayat Pesanan**: Pelanggan dapat melihat riwayat pesanan mereka.
+- **ChatBot AI**: ChatBot dengan Gemini AI untuk memberikan rekomendasi menu berdasarkan jenis acara dan kebutuhan pelanggan.
+- **Antarmuka Responsif**: Desain yang responsif menggunakan Tailwind CSS untuk pengalaman pengguna yang optimal.
+
+## Teknologi yang Digunakan
+
+- **Framework Frontend**: React dengan TypeScript
+- **State Management**: React Context API
+- **Backend**: Firebase (Authentication, Firestore)
+- **AI Integration**: Google Gemini AI API
+- **Styling**: Tailwind CSS
+- **Routing**: React Router
+- **Development & Build**: Create React App
 
 ### `npm run eject`
 
@@ -39,8 +61,57 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+  - **pages/**: Halaman-halaman utama aplikasi.
+    - **Dashboard.tsx**: Halaman beranda utama.
+    - **Login.tsx**: Halaman login.
+    - **SignUp.tsx**: Halaman pendaftaran.
+    - **MenuPage.tsx**: Halaman katalog menu.
+    - **OrderPage.tsx**: Halaman untuk melakukan pemesanan.
+    - **AboutUs.tsx**: Halaman informasi tentang V-THREE SNACK.
+    - **CartPage.tsx**: Halaman keranjang belanja.
+    - **MyOrders.tsx**: Halaman riwayat pesanan pengguna.
+    - **OrderSuccessPage.tsx**: Halaman konfirmasi pesanan berhasil.
+    - **ForgotPassword.tsx**: Halaman reset password.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - **types/**: Definisi TypeScript untuk tipe data aplikasi.
+    - **menuTypes.ts**: Definisi tipe untuk menu dan kategori.
+    - **orderTypes.ts**: Definisi tipe untuk pesanan dan status.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Arsitektur Aplikasi
+
+Aplikasi ini diimplementasikan menggunakan Layered Architecture:
+
+- **Presentation Layer**: Komponen React di folder components/ dan pages/.
+- **Business Logic Layer**: Service di folder services/ dan context/.
+- **Data Access Layer**: Integrasi dengan Firebase Firestore dan Gemini AI.
+
+Arsitektur ini memungkinkan pemisahan kepentingan (separation of concerns), memudahkan pengujian, dan meningkatkan pemeliharaan kode.
+
+## Fitur Keamanan
+
+Aplikasi ini mengimplementasikan beberapa fitur keamanan:
+
+- **Autentikasi Firebase**: Menggunakan sistem autentikasi yang aman dari Firebase.
+- **Rute Terproteksi**: Menggunakan PrivateRoute untuk mencegah akses tidak sah ke halaman yang memerlukan autentikasi.
+- **Validasi Input**: Validasi input untuk mencegah data tidak valid disimpan ke database.
+- **Variabel Lingkungan**: Penggunaan .env untuk menyimpan API key dan konfigurasi sensitif.
+
+## Fitur ChatBot dengan Gemini AI
+
+Aplikasi ini mengintegrasikan Google Gemini AI untuk memberikan rekomendasi menu berdasarkan jenis acara dan kebutuhan pelanggan. ChatBot ini:
+
+- Menyediakan rekomendasi menu berdasarkan jenis acara (pernikahan, ulang tahun, seminar, dll)
+- Mempertimbangkan kebutuhan diet khusus (vegetarian, bebas gluten, dll)
+- Memberikan saran berdasarkan jumlah tamu dan budget
+- Menawarkan informasi tentang menu paling populer
+
+## Pengembangan Masa Depan
+
+Beberapa fitur yang direncanakan untuk pengembangan masa depan:
+
+- **Manajemen Inventaris**: Sistem untuk melacak stok bahan baku.
+- **Analitik Bisnis**: Dashboard analitik dengan visualisasi data penjualan.
+- **Integrasi Pembayaran**: Dukungan untuk berbagai metode pembayaran online.
+- **Sistem Notifikasi**: Notifikasi real-time untuk admin dan pelanggan.
+- **Aplikasi Mobile**: Versi mobile dari aplikasi untuk pemesanan on-the-go.
+- **Peningkatan ChatBot**: Pengembangan lebih lanjut dari kemampuan ChatBot dengan fitur pembelajaran dari interaksi pengguna.
