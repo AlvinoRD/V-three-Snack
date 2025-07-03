@@ -6,11 +6,7 @@ Aplikasi ini dirancang untuk menampilkan menu katering, menangani pesanan pelang
 
 Anda dapat mengakses dan mencoba aplikasi yang sudah di-deploy melalui link berikut:
 
-[Akses V-THREE SNACK](https://v-three-snack.web.app)
-
-Kredensial untuk Login:
-- Email: ujicoba@gmail.com
-- Password: lab12345
+[Akses V-THREE SNACK](https://login-a3932.web.app/dashboard)
 
 ## Fitur Utama
 
