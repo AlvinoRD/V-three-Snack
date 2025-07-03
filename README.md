@@ -107,4 +107,4 @@ Beberapa fitur yang direncanakan untuk pengembangan masa depan:
 - **Integrasi Pembayaran**: Dukungan untuk berbagai metode pembayaran online.
 - **Sistem Notifikasi**: Notifikasi real-time untuk admin dan pelanggan.
 - **Aplikasi Mobile**: Versi mobile dari aplikasi untuk pemesanan on-the-go.
-- **Peningkatan ChatBot**: Pengembangan lebih lanjut dari kemampuan ChatBot dengan fitur pembelajaran dari interaksi pengguna.
+- **Peningkatan ChatBot**: Pengembangan lebih lanjut dari kemampuan ChatBot dengan fitur pembelajaran dari interaksi pengguna
