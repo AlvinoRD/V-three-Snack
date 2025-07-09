@@ -163,12 +163,6 @@ const CartPage: React.FC = () => {
                   >
                     ← Lanjutkan Belanja
                   </button>
-                  <button
-                    onClick={clearCart}
-                    className="text-red-500"
-                  >
-                    Kosongkan Keranjang
-                  </button>
                 </div>
               </div>
             </div>

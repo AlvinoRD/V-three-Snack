@@ -13,11 +13,31 @@
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+.env*.local
 
+# Firebase config and sensitive files
+src/firebase/firebase.ts
+# Uncomment if you want to keep the Gemini service private
+# src/services/GeminiService.ts 
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# API keys and secrets
+.env.development
+.env.production
+.env.staging
+**/serviceAccountKey.json

@@ -11,11 +11,15 @@ const AboutUs: React.FC = () => {
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold">About Our Company</h2>
             <p className="mt-2 text-gray-600">
-              We are a dedicated team committed to providing excellent service and high-quality products to our customers.
-              Our mission is to create value through innovative solutions and exceptional customer experiences.
+              Vthree Snack adalah brand kuliner lokal yang berdedikasi menghadirkan aneka camilan berkualitas dengan cita rasa khas Indonesia. 
+              Kami memproduksi berbagai jenis snack, mulai dari makanan ringan tradisional hingga kreasi modern, yang cocok dinikmati kapan saja. 
+              Dengan mengutamakan bahan-bahan pilihan dan proses produksi yang higienis, Vthree Snack hadir sebagai solusi praktis dan lezat untuk menemani aktivitas harian Anda. 
+              Kami percaya bahwa setiap gigitan membawa rasa, cerita, dan kebahagiaan.
             </p>
             <p className="mt-4 text-gray-600">
-              Founded in 2020, we've been growing steadily and expanding our offerings to meet the evolving needs of our clients.
+              Dibangun sejak 2009, kami telah tumbuh secara konsisten dan terus memperluas ragam produk kami untuk menjawab kebutuhan konsumen yang terus berkembang. 
+              Berawal dari produksi camilan rumahan dalam skala kecil, Vthree Snack kini telah melayani berbagai segmen pasar, mulai dari individu, pelaku usaha, hingga penyelenggara acara. 
+              Dengan komitmen terhadap kualitas, inovasi rasa, dan kepuasan pelanggan, kami terus berinovasi untuk menjadi pilihan utama dalam industri makanan ringan di Indonesia.
             </p>
           </div>
         </div>
