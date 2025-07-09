@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 # V-THREE SNACK Catering Management ## Struktur Proyek
 =======
 # V-THREE SNACK Catering Management
->>>>>>> b089edda7aab8110e6fc699df0867c5cf49074cc
+
 
 Aplikasi ini dirancang untuk menampilkan menu katering, menangani pesanan pelanggan secara online, dan memberikan rekomendasi menu melalui ChatBot pintar. Aplikasi ini menggunakan Firebase Firestore untuk menyimpan dan mengelola data menu dan pesanan.
 
@@ -10,7 +10,6 @@ Aplikasi ini dirancang untuk menampilkan menu katering, menangani pesanan pelang
 
 Anda dapat mengakses dan mencoba aplikasi yang sudah di-deploy melalui link berikut:
 
-<<<<<<< HEAD
 [Akses V-THREE SNACK](https://v-three-snack.web.app)
 
 Kredensial untuk Login:
@@ -188,7 +187,6 @@ Beberapa fitur yang direncanakan untuk pengembangan masa depan:
 - **Integrasi Pembayaran**: Dukungan untuk berbagai metode pembayaran online.
 - **Sistem Notifikasi**: Notifikasi real-time untuk admin dan pelanggan.
 - **Aplikasi Mobile**: Versi mobile dari aplikasi untuk pemesanan on-the-go.
-<<<<<<< HEAD
 - **Peningkatan ChatBot**: Pengembangan lebih lanjut dari kemampuan ChatBot dengan fitur pembelajaran dari interaksi pengguna.
 
 ## Persiapan Upload ke GitHub
